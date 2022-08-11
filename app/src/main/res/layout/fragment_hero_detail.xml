@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <!--        put data from viewModel-->
+        <import type="android.view.View"/>
+        <variable
+            name="superhero"
+            type="com.example.marvelapiapp.data.model.SuperHeroDetail" />
+    </data>
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".ui.heroDetail.HeroDetailFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:layout_margin="3dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_margin="8sp"
+                        android:layout_height="195dp">
+
+                        <ImageView
+                            android:id="@+id/imageviewSuperHero"
+                            android:layout_width="match_parent"
+                            android:layout_height="195dp"
+                            android:contentDescription="@string/HeroImageDescription"
+                            android:scaleType="matrix"
+                            app:image='@{superhero.image ?? ""}' />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:padding="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/textViewDetailSuperHeroName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{superhero.name}"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                            tools:hint="Friendly Spider-man" />
+
+                        <TextView
+                            android:id="@+id/textViewSuperDetailHeroDescription"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/textViewDetailSuperHeroName"
+                            android:text="@{superhero.description}"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                            tools:hint="SuperHero with power of spiders.." />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:padding="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/textViewDetailSuperHeroSeries"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{`Series Appearances: ` + superhero.series}"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            tools:hint="Series Appearances: 10" />
+                        <TextView
+                            android:id="@+id/textViewDetailSuperHeroComics"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:text="@{`Comics Appearances: ` + superhero.comics}"
+                            android:layout_below="@id/textViewDetailSuperHeroSeries"
+                            tools:hint="Comics Appearances: 10" />
+                        <TextView
+                            android:id="@+id/textViewDetailSuperHeroEvents"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:text="@{`Events Appearances: ` + superhero.events}"
+                            android:layout_below="@id/textViewDetailSuperHeroComics"
+                            tools:hint="Events Appearances: 10" />
+                        <TextView
+                            android:id="@+id/textViewDetailSuperHeroStories"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:text="@{`Stories Appearances: ` + superhero.series}"
+                            android:layout_below="@id/textViewDetailSuperHeroEvents"
+                            tools:hint="Stories Appearances: 10" />
+
+
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:padding="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:id="@+id/textViewDetailSuperHeroUrl"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:text="@string/SuperHeroUrlDescrip"
+                            tools:hint="Links of Interest" />
+
+                        <TextView
+                            android:id="@+id/textViewDetailSuperHeroUrlLinks"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                            android:linksClickable="true"
+                            android:autoLink="web|email"
+                            android:text="@{superhero.urls[0].url}"
+                            android:layout_below="@id/textViewDetailSuperHeroUrl"
+                            tools:hint="URLS Link" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+
+
+    </FrameLayout>
+
+</layout>

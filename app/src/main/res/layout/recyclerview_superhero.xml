@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+<!--        put data from viewModel-->
+        <import type="android.view.View"/>
+        <variable
+            name="superhero"
+            type="com.example.marvelapiapp.data.model.SuperHero" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:layout_margin="3dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_margin="8sp"
+                    android:layout_height="195dp">
+
+                    <ImageView
+                        android:id="@+id/imageviewSuperHero"
+                        android:layout_width="match_parent"
+                        android:layout_height="195dp"
+                        android:contentDescription="@string/HeroImageDescription"
+                        android:scaleType="matrix"
+                        app:image="@{superhero.image}" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:padding="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/textViewSuperHeroName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{superhero.name}"
+                        android:textSize="18sp"
+                        tools:text="Friendly Spider-man" />
+
+                    <TextView
+                        android:id="@+id/textViewSuperHeroDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/textViewSuperHeroName"
+                        android:text="@{Integer.toString(superhero.id)}"
+                        android:textSize="14sp"
+                        tools:text="SuperHero with power of spiders.." />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/buttonSuperHeroPage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="@string/HeroDetailsButtonDescription">
+
+                    </com.google.android.material.button.MaterialButton>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+
+</layout>
