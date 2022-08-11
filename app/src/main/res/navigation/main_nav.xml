@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/superHeroFragment"
-        android:name="com.example.marvelapiapp.ui.SuperHeroFragment"
+        android:name="com.example.marvelapiapp.ui.fragment.SuperHeroFragment"
         android:label="fragment_super_hero"
         tools:layout="@layout/fragment_super_hero" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/heroDetailFragment"
-        android:name="com.example.marvelapiapp.ui.heroDetail.HeroDetailFragment"
+        android:name="com.example.marvelapiapp.ui.fragment.HeroDetailFragment"
         android:label="fragment_hero_detail"
         tools:layout="@layout/fragment_hero_detail">
         <argument

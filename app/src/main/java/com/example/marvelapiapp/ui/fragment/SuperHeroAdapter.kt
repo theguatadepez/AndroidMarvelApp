@@ -1,4 +1,4 @@
-package com.example.marvelapiapp.ui
+package com.example.marvelapiapp.ui.fragment
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.marvelapiapp.R
 import com.example.marvelapiapp.data.model.SuperHero
 import com.example.marvelapiapp.databinding.RecyclerviewSuperheroBinding
+import com.example.marvelapiapp.ui.RecyclerViewClickListener
 
 class SuperHeroAdapter(
     private val superHeroes: List<SuperHero>,
@@ -29,7 +30,7 @@ class SuperHeroAdapter(
         )
     )
 
-    override fun onBindViewHolder(holder: SuperHeroAdapter.SuperHeroViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: SuperHeroViewHolder, position: Int) {
         holder.recyclerviewSuperheroBinding.superhero = superHeroes[position]
         holder.recyclerviewSuperheroBinding.buttonSuperHeroPage.setOnClickListener {
             listener.onRecyclerViewItemClick(holder.recyclerviewSuperheroBinding.buttonSuperHeroPage,superHeroes[position])

@@ -1,6 +1,5 @@
-package com.example.marvelapiapp.ui
+package com.example.marvelapiapp.ui.fragment
 
-import android.opengl.Visibility
 import android.os.Bundle
 import android.os.Parcelable
 import android.view.LayoutInflater
@@ -15,6 +14,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.marvelapiapp.R
 import com.example.marvelapiapp.data.model.SuperHero
 import com.example.marvelapiapp.databinding.FragmentSuperHeroBinding
+import com.example.marvelapiapp.ui.RecyclerViewClickListener
+import com.example.marvelapiapp.ui.viewmodel.SuperHeroViewModel
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 

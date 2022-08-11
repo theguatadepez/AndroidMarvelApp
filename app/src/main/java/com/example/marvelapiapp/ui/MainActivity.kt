@@ -1,7 +1,8 @@
-package com.example.marvelapiapp
+package com.example.marvelapiapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.marvelapiapp.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

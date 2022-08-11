@@ -1,4 +1,4 @@
-package com.example.marvelapiapp.ui.heroDetail
+package com.example.marvelapiapp.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import com.example.marvelapiapp.databinding.FragmentHeroDetailBinding
-import com.example.marvelapiapp.ui.SuperHeroViewModel
+import com.example.marvelapiapp.ui.viewmodel.SuperHeroViewModel
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
