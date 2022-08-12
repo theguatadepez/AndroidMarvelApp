@@ -27,10 +27,6 @@ class SuperHeroFragment : Fragment(), RecyclerViewClickListener {
     private val binding get() = _binding!!
     private var state: Parcelable? = null
 
-    companion object {
-        fun newInstance() = SuperHeroFragment()
-    }
-
     override fun onPause() {
         super.onPause()
         state = binding.recyclerviewSuperHero.layoutManager?.onSaveInstanceState()

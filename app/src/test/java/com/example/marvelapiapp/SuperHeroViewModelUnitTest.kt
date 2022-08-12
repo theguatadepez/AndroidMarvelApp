@@ -16,7 +16,6 @@ import kotlinx.coroutines.test.setMain
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import org.junit.rules.ExpectedException
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
 import org.mockito.Mock
@@ -38,9 +37,6 @@ class SuperHeroViewModelUnitTest : MockWebServerBaseTest() {
 
     @Mock
     private lateinit var mBrokenMockSuperHeroRepository: SuperHeroRepository
-
-    @get:Rule
-    val mException: ExpectedException = ExpectedException.none()
 
     @get:Rule
     val mInstantTaskExecutorRule: InstantTaskExecutorRule = InstantTaskExecutorRule()

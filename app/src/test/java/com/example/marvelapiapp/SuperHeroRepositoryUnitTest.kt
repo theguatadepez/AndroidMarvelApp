@@ -15,7 +15,6 @@ import kotlinx.coroutines.test.setMain
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import org.junit.rules.ExpectedException
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
 import org.mockito.Mock
@@ -33,9 +32,6 @@ class SuperHeroRepositoryUnitTest : MockWebServerBaseTest() {
 
     @Mock
     private lateinit var mMockAPI: SuperHeroAPI
-
-    @get:Rule
-    val mException: ExpectedException = ExpectedException.none()
 
     @get:Rule
     val mInstantTaskExecutorRule: InstantTaskExecutorRule = InstantTaskExecutorRule()
@@ -79,12 +75,11 @@ class SuperHeroRepositoryUnitTest : MockWebServerBaseTest() {
         }
     }
 
-    @Test
+    @Test(expected = ApiException::class)
     fun getSuperHeroListLimitZero(){
 
         val mSuperHeroList: List<SuperHero> = getDummySuperHeroList()
-        mException.expect(ApiException::class.java)
-        mException.expectMessage("409")
+
         runBlocking {
             mockHttpResponse(409)
             val mResult = mSuperHeroRepository.getSuperHeroList(0)
@@ -93,12 +88,10 @@ class SuperHeroRepositoryUnitTest : MockWebServerBaseTest() {
         }
     }
 
-    @Test
+    @Test(expected = ApiException::class)
     fun getSuperHeroListWrongLimitOver100(){
 
         val mSuperHeroList: List<SuperHero> = getDummySuperHeroList()
-        mException.expect(ApiException::class.java)
-        mException.expectMessage("409")
         runBlocking {
             mockHttpResponse(409)
             val mResult = mSuperHeroRepository.getSuperHeroList(1000)
@@ -132,12 +125,10 @@ class SuperHeroRepositoryUnitTest : MockWebServerBaseTest() {
         }
     }
 
-    @Test
+    @Test(expected = ApiException::class)
     fun getSuperHeroDetailsWrongList(){
 
         val mSuperHeroDetail: SuperHeroDetail = getDummySuperHeroDetail()
-        mException.expect(ApiException::class.java)
-        mException.expectMessage("409")
         runBlocking {
             mockHttpResponse(409)
             val mResult = mSuperHeroRepository.getSuperHeroDetails(0)

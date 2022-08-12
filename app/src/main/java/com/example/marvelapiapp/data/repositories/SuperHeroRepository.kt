@@ -1,6 +1,5 @@
 package com.example.marvelapiapp.data.repositories
 
-import android.util.Log
 import com.example.marvelapiapp.data.model.SuperHero
 import com.example.marvelapiapp.data.model.SuperHeroDetail
 import com.example.marvelapiapp.data.network.SuperHeroAPI
