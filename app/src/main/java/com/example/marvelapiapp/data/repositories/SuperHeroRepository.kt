@@ -10,15 +10,14 @@ class SuperHeroRepository @Inject constructor(
     private val mSuperHeroAPI: SuperHeroAPI
 ) : SafeAPIRequest(){
 
-    suspend fun getSuperHeroList(): List<SuperHero> {
+    suspend fun getSuperHeroList(mLimit:Int): List<SuperHero> {
         var mSuperHero: SuperHero
         val mSuperHeroList : MutableList<SuperHero> = ArrayList()
-        val mSuperHeroResponse = apiRequest {mSuperHeroAPI.getSuperHeroList(100)}
+        val mSuperHeroResponse = apiRequest { mSuperHeroAPI.getSuperHeroList(mLimit)}
 
         mSuperHeroResponse.data.results.forEach {
             mSuperHero = SuperHero(it.id,
                 it.name,
-                it.modified,
                 it.thumbnail.path+"."+it.thumbnail.extension
             )
             mSuperHeroList.add(mSuperHero)
@@ -34,12 +33,10 @@ class SuperHeroRepository @Inject constructor(
             mSuperHeroDetail = SuperHeroDetail(it.id,
                 it.name,
                 it.description,
-                it.comics.items.size,
-                it.events.items.size,
-                it.modified,
-                it.resourceURI,
-                it.series.items.size,
-                it.stories.items.size,
+                it.comics.available,
+                it.events.available,
+                it.series.available,
+                it.stories.available,
                 it.thumbnail.path+"."+it.thumbnail.extension,
                 it.urls
             )

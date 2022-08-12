@@ -44,7 +44,7 @@ class SuperHeroFragment : Fragment(), RecyclerViewClickListener {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentSuperHeroBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -52,7 +52,7 @@ class SuperHeroFragment : Fragment(), RecyclerViewClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.getSuperHeroes()
+        viewModel.getSuperHeroes(100)
         viewModelListener()
     }
 
@@ -67,6 +67,7 @@ class SuperHeroFragment : Fragment(), RecyclerViewClickListener {
             binding.recyclerviewSuperHero.layoutManager?.onRestoreInstanceState(state)
         })
         viewModel.errorLivedata.observe(viewLifecycleOwner, Observer{
+            binding.loadingPanel.visibility = View.GONE
             Snackbar.make(requireView(),"Ups, there was an error, please try again!",Snackbar.LENGTH_SHORT).show()
         })
     }

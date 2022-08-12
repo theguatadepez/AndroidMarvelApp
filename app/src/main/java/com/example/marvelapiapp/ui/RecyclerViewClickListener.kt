@@ -5,4 +5,5 @@ import com.example.marvelapiapp.data.model.SuperHero
 
 interface RecyclerViewClickListener {
     fun onRecyclerViewItemClick(view: View, superHero: SuperHero)
+
 }

@@ -28,18 +28,18 @@ class SuperHeroViewModel @Inject constructor(
     private val _superHeroDetail = MutableLiveData<SuperHeroDetail>()
     val superHeroDetail: LiveData<SuperHeroDetail> get() = _superHeroDetail
 
-    fun getSuperHeroes() {
-        getSuperHeroesFromRepository()
+    fun getSuperHeroes(mLimit: Int) {
+        getSuperHeroesFromRepository(mLimit)
     }
 
     fun getSuperHeroDetail(superHeroID: Int) {
         getSuperHeroDetailsFromRepository(superHeroID)
     }
 
-    private fun getSuperHeroesFromRepository() {
+    private fun getSuperHeroesFromRepository(mLimit: Int) {
         job = Coroutines.io {
             try {
-                _superHeroesData.postValue(mSuperHeroRepository.getSuperHeroList())
+                _superHeroesData.postValue(mSuperHeroRepository.getSuperHeroList(mLimit))
             } catch (e: ApiException) {
                 _errorLiveData.postValue(e.message)
             }
