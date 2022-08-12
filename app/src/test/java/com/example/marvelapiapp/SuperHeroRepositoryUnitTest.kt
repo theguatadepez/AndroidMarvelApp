@@ -1,6 +1,6 @@
 package com.example.marvelapiapp
 
-import android.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.example.marvelapiapp.data.model.SuperHero
 import com.example.marvelapiapp.data.model.SuperHeroDetail
 import com.example.marvelapiapp.data.network.SuperHeroAPI

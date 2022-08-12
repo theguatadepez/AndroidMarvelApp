@@ -90,7 +90,7 @@ dependencies {
     testAnnotationProcessor 'com.squareup.dagger:dagger-compiler:1.2.2'
     testImplementation 'io.mockk:mockk:1.11.0'
     testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4'
-    testImplementation 'android.arch.core:core-testing:1.1.1'
+//    testImplementation 'android.arch.core:core-testing:1.1.1'
     //mock final classes
     testImplementation 'org.mockito:mockito-inline:2.13.0'
     //mock web server calls
@@ -98,4 +98,6 @@ dependencies {
     testImplementation "com.squareup.okhttp3:mockwebserver:$mockWebServerVersion"
     //use JSONObject in UnitTest
     testImplementation 'org.json:json:20220320'
+    testImplementation "androidx.arch.core:core-testing:2.1.0"
+
 }

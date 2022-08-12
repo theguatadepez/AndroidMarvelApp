@@ -36,3 +36,4 @@ fun getWrongDummySuperHeroList(): List<SuperHero> {
     mSuperHeroList.add(getDummySuperHero(1017100,"A-Bomb (HAS)","http://i.annihil.us/u/prod/marvel/i/mg/3/20/5232158de5b16.jpg"))
     return mSuperHeroList
 }
+
