@@ -19,14 +19,11 @@ import dagger.hilt.android.AndroidEntryPoint
 class HeroDetailFragment : Fragment() {
 
     private val viewModel: SuperHeroViewModel by activityViewModels()
-    private val mNavArgs: HeroDetailFragmentArgs by navArgs()
     private var  _binding: FragmentHeroDetailBinding? = null
     private val binding get() = _binding!!
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.textViewDetailSuperHeroName.text = mNavArgs.superHeroID.toString()
-        binding.textViewSuperDetailHeroDescription.text = mNavArgs.superHeroID.toString()
     }
 
     override fun onCreateView(
@@ -34,7 +31,6 @@ class HeroDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentHeroDetailBinding.inflate(inflater, container, false)
-//        viewModel.getSuperHeroDetail(mNavArgs.superHeroID)
         observeData()
         return binding.root
     }

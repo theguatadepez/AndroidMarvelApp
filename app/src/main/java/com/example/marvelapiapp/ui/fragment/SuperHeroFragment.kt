@@ -78,7 +78,7 @@ class SuperHeroFragment : Fragment(), RecyclerViewClickListener {
         when(view.id){
             R.id.buttonSuperHeroPage -> {
                 viewModel.setSuperHeroId(superHero.id)
-                action = SuperHeroFragmentDirections.actionSuperHeroFragmentToHeroDetailFragment(superHero.id)
+                action = SuperHeroFragmentDirections.actionSuperHeroFragmentToHeroDetailFragment()
                 Navigation.findNavController(view).navigate(action)
             }
         }

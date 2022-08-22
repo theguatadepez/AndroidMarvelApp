@@ -19,8 +19,5 @@
         android:name="com.example.marvelapiapp.ui.fragment.HeroDetailFragment"
         android:label="fragment_hero_detail"
         tools:layout="@layout/fragment_hero_detail">
-        <argument
-            android:name="superHeroID"
-            app:argType="integer" />
     </fragment>
 </navigation>
