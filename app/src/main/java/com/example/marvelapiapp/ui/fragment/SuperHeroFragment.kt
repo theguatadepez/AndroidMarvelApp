@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.NavDirections
@@ -22,7 +23,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class SuperHeroFragment : Fragment(), RecyclerViewClickListener {
 
-    private val viewModel: SuperHeroViewModel by viewModels()
+    private val viewModel: SuperHeroViewModel by activityViewModels()
     private var  _binding: FragmentSuperHeroBinding? = null
     private val binding get() = _binding!!
     private var state: Parcelable? = null
@@ -47,7 +48,6 @@ class SuperHeroFragment : Fragment(), RecyclerViewClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         viewModel.getSuperHeroes(100)
         viewModelListener()
     }
@@ -77,6 +77,7 @@ class SuperHeroFragment : Fragment(), RecyclerViewClickListener {
         val action: NavDirections
         when(view.id){
             R.id.buttonSuperHeroPage -> {
+                viewModel.setSuperHeroId(superHero.id)
                 action = SuperHeroFragmentDirections.actionSuperHeroFragmentToHeroDetailFragment(superHero.id)
                 Navigation.findNavController(view).navigate(action)
             }

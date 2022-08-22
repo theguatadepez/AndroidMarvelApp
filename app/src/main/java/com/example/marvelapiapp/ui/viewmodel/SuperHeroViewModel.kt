@@ -28,6 +28,14 @@ class SuperHeroViewModel @Inject constructor(
     private val _superHeroDetail = MutableLiveData<SuperHeroDetail>()
     val superHeroDetail: LiveData<SuperHeroDetail> get() = _superHeroDetail
 
+    private val _superHeroId = MutableLiveData<Int>()
+    val superHeroId: LiveData<Int> get() = _superHeroId
+
+    fun setSuperHeroId(superHeroID: Int){
+        _superHeroId.value = superHeroID
+        getSuperHeroDetail(superHeroID)
+    }
+
     fun getSuperHeroes(mLimit: Int) {
         getSuperHeroesFromRepository(mLimit)
     }

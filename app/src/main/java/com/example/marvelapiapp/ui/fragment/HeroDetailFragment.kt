@@ -1,10 +1,12 @@
 package com.example.marvelapiapp.ui.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
@@ -16,7 +18,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class HeroDetailFragment : Fragment() {
 
-    private val viewModel: SuperHeroViewModel by viewModels()
+    private val viewModel: SuperHeroViewModel by activityViewModels()
     private val mNavArgs: HeroDetailFragmentArgs by navArgs()
     private var  _binding: FragmentHeroDetailBinding? = null
     private val binding get() = _binding!!
@@ -32,7 +34,7 @@ class HeroDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentHeroDetailBinding.inflate(inflater, container, false)
-        viewModel.getSuperHeroDetail(mNavArgs.superHeroID)
+//        viewModel.getSuperHeroDetail(mNavArgs.superHeroID)
         observeData()
         return binding.root
     }
@@ -44,6 +46,11 @@ class HeroDetailFragment : Fragment() {
         viewModel.errorLivedata.observe(viewLifecycleOwner, Observer{
             Snackbar.make(requireView(),"Ups, there was an error, please try again!", Snackbar.LENGTH_SHORT).show()
         })
+    }
+
+    override fun onPause() {
+        super.onPause()
+        binding.superhero = null
     }
 
     override fun onDestroyView() {
